@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "cmake",
+        "command": "build",
+        "problemMatcher": "$gcc",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      },
+      {
+        "label": "pico",
+        "type": "shell",
+        "command": "${workspaceRoot}/copy_to_pico.ps1",
+        "dependsOn": [
+          "build"
+        ],
+        "problemMatcher": [
+        ]
+      },
+      {
+        "label": "nuke",
+        "type": "shell",
+        "command": "${workspaceRoot}/pico_nuke.ps1",
+        "problemMatcher": [
+        ]
+      }
+    ]
+  }
+  
